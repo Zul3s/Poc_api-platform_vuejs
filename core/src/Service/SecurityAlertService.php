@@ -3,16 +3,24 @@
 
 namespace App\Service;
 
+use App\Contract\Service\SecurityAlertInterface;
 use App\Entity\SecurityAlert;
 use App\Helper\Converter;
 use Doctrine\ORM\EntityManagerInterface;
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;
 
-class SecurityAlertService
+/**
+ * Class SecurityAlertService
+ * @package App\Service
+ */
+class SecurityAlertService implements SecurityAlertInterface
 {
 
-    const UPDATE_URL = 'https://www.debian.org/security/dsa';
+    /**
+     * The URL to get latest security alert
+     */
+    private const UPDATE_URL = 'https://www.debian.org/security/dsa';
 
     /**
      * @var EntityManagerInterface

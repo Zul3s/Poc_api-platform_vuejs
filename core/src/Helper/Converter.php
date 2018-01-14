@@ -3,7 +3,13 @@
 
 namespace App\Helper;
 
-abstract class Converter
+use App\Contract\Helper\ConverterInterface;
+
+/**
+ * Class Converter
+ * @package App\Helper
+ */
+abstract class Converter implements ConverterInterface
 {
     /**
      * Convert SimpleXML Element to json

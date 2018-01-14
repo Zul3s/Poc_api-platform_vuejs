@@ -2,7 +2,7 @@
 
 namespace App\Controller\Api;
 
-use App\Service\SecurityAlertService;
+use App\Contract\Service\SecurityAlertInterface;
 use Psr\Log\LoggerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -15,13 +15,13 @@ class DefaultController extends Controller
      * @Method({"POST"})
      * @Route("/api/updateSecurityAlerts")
      *
-     * @param SecurityAlertService $alertService
+     * @param SecurityAlertInterface $alertService
      * @param LoggerInterface $logger
      *
      * @return JsonResponse
      */
     public function updateSecurityAlerts(
-        SecurityAlertService $alertService,
+        SecurityAlertInterface $alertService,
         LoggerInterface $logger
     ) {
         try {
